@@ -4,11 +4,14 @@ pipeline {
     environment {
       PASS = credentials('registry-pass')
     }
- 
-    stages {
-        stage('Cleanup') {
-            deleteDir()
-        }
+    
+       stage('Cleanup') {
+           steps {
+	        sh './jenkins/build/mvn.sh mvn clean'
+	deleteDir()
+		}
+	}
+    
         stage('Build') {
             steps {
                 sh '''
