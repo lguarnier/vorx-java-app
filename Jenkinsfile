@@ -5,11 +5,7 @@ pipeline {
       PASS = credentials('registry-pass')
     }
  
-    stages {
-        stage('Cleanup') {
-            deleteDir()
-        }
-        stage('Build') {
+       stage('Build') {
             steps {
                 sh '''
                    ./jenkins/build/mvn.sh mvn -B -DskipTests clean package
