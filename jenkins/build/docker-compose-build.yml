@@ -1,0 +1,7 @@
+version: '3'
+services:
+   app:
+    image: "lguarnier/maven-project:$BUILD_TAG"
+    build:
+      context: .
+      dockerfile: Dockerfile
